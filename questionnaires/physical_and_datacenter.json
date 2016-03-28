@@ -249,7 +249,7 @@
             {
               "type": "checkgroup",
               "id": "dc_outsourced",
-              "text": "Do you use Google Cloud, Amazon Web Services, or a similar outsourced, virtual-machine-based data center?",
+              "text": "Do you use Google Cloud, Amazon Web Services, or a similar outsourced, virtual-machine-based data center? (Select all that apply)",
               "defaultChoice": false,
               "choices": [
                 {"dc_outsourced_yes": "Yes."},
@@ -262,6 +262,12 @@
               "cond": "dc_outsourced_yes",
               "text": "Who is your data center provider?"
             },
+		   {
+			  "type": "tip",
+			  "id": "dc_provider_assurance_reports",
+			  "cond": "dc_outsourced_yes",
+			  "text": "In cases where data centers are fully or partially outsourced, vendors should expect a request for external audit reports for both the data center as well as the vendor itself."
+			},
             {
               "type": "block",
               "cond": "dc_outsourced_no",
