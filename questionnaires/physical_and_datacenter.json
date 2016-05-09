@@ -292,7 +292,7 @@
                 {
                   "type": "line",
                   "id": "dc_certifications",
-                  "text": "Are the data centers categorized in tiers or certified in some way (e.g., TIA-942, ISO 27001, SSAE-16, etc.)? If yes, list the tiers/certifications:"
+                  "text": "Are the data centers categorized in tiers or certified in a way that's industry appropriate (e.g., ISO 27001, SOC 2, PCI-DSS etc.)? If yes, list the tiers/certifications:"
                 },
                 {
                   "id": "dc_policy",
