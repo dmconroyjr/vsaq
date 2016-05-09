@@ -167,6 +167,7 @@
                     {"secprog_vendorsec": "A process to ensure that your service providers and subcontractors are capable of taking appropriate steps to protect sensitive data and systems"},
                     {"secprog_incidentmanagement": "Processes and procedures to ensure that security incidents are discovered in a timely manner and dealt with effectively"},
                     {"secprog_changemgmt": "A change management process to ensure that all changes to networks, systems, and processes are appropriately reviewed"}
+					{"secprog_training": "A training program for all employees to ensure all employees are aware of their responsibilities regarding protecting sensitive data"}
                   ]
                 },
                 {
@@ -232,6 +233,7 @@
                           "<li>Granting access to data solely on a \"need-to-know\" basis, in accordance with the employee's job description and responsibilities; and revoking access when the need no longer exists</li>" +
                           "<li>Having processes in place to make sure access (both physical and logical) is revoked when an employee, intern, vendor, contractor, or other associate leaves the company or a contract ends</li>" +
                           "<li>Regularly training employees on current security and awareness best practices</li>" +
+						  "<li>Informing terminated employees of their continued obligation to non-discloure of sensitive information during the exit interview</li>" +
                           "<li>Running background checks on new hires and contractors</li></ul>",
                   "warn": "yes",
                   "severity": "high",
@@ -272,6 +274,16 @@
                   "name": "No change management process for security impacting changes",
                   "cond": "!secprog_changemgmt",
                   "id": "warn_secprog_changemgmt"
+                }
+				{
+                  "type": "tip",
+                  "text": "An information security training and awareness program communicates responsibilities for protecting sensitive data.",
+                  "warn": "yes",
+                  "severity": "high",
+                  "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+                  "id": "warn_secprog_no_training",
+                  "name": "No training program",
+                  "cond": "!secprog_training"
                 }
               ]
             },
