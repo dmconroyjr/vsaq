@@ -39,6 +39,297 @@
         },
         {
           "type": "block",
+          "id": "block_user_acct_admin",
+          "text": "User Account Administration",
+          "items": [
+            {
+              "type": "info",
+              "text": "<b>Why this section matters:</b> Following best practices for user account administration allows for easier attribution for system changes, separation of duties, and protection against account take-over and disgruntled former employee attacks."
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_unique_id",
+              "text": "Each user (end user, administrator or customer) will be assigned a unique user identifier (user ID) to use or administer all applicable systems.",
+              "defaultChoice": false,
+              "choices": [
+                {"user_unique_id_yes": "Unique user IDs are required for all applications and devices we administer."},
+                {"user_unique_id_no": "Unique user IDs are not required for all applications or devices we administer, or this requirement is not consistently applied."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_user_unique_id",
+              "cond": "user_unique_id_no",
+              "text": "Unique user IDs are essential to maintaining accountability and separation of duties.",
+              "warn": "yes",
+              "name": "No unique user IDs in user account administration",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_id_disabled_termination",
+              "text": "User IDs will be disabled and purged upon employee termination based on industry best practices. This includes termination of all access rights such as email, remote access, and other network and system resources.",
+              "defaultChoice": false,
+              "choices": [
+                {"user_id_disabled_termination_yes": "Yes, we disable user IDs upon employee termination and purge user IDs based on appropriate retention policy."},
+                {"user_id_disabled_termination_no": "We do not disable user IDs in a timely manner upon employee termination."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_user_id_disabled_termination",
+              "cond": "user_id_disabled_termination_no",
+              "text": "Leaving user IDs active upon employee termination increases the risk of a disgruntled former employee attempting to disrupt network resources or exfiltrate sensitive data.",
+              "warn": "yes",
+              "name": "No user ID deactivation upon termination in user account administration",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "critical"
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_id_shared_accounts_prohibited",
+              "text": "Shared accounts will not be allowed in order to better facilitate employee accountability and dual control.",
+              "defaultChoice": false,
+              "choices": [
+                {"shared_accounts_prohibited_yes": "Our organization does not allow user accounts to be shared among individuals."},
+                {"shared_accounts_prohibited_no": "We do not prohibit the use of shared accounts within our organization."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_shared_accounts_prohibited",
+              "cond": "shared_accounts_prohibited_no",
+              "text": "Allowing user IDs to be shared between individuals reduces accountability and transparency. There's a greater risk of insider abuse when activity can't be definitively attributed to a single individual.",
+              "warn": "yes",
+              "name": "No prohibition of shared accounts",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_id_default_admin_disabled",
+              "text": "Default administrator accounts will be disabled or renamed if disabling is not possible.",
+              "defaultChoice": false,
+              "choices": [
+                {"default_admin_disabled_yes": "Disabling or renaming default administrator accounts is a required step when standing up new systems."},
+                {"default_admin_disabled_no": "We do not have a policy or standard practice that requires default administrator accounts to be disabled or renamed with disabling is not possible."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_default_admin_disabled",
+              "cond": "default_admin_disabled_no",
+              "text": "A common attack vector for threat actors is to leverage knowledge of default administrator accounts. Disabling or renaming default administrator accounts removes a common means of escalating privilege by compromising a known administrator account.",
+              "warn": "yes",
+              "name": "No disabling of default administrators",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_id_password_complexity",
+              "text": "Industry best practices for password complexity will be implemented",
+              "defaultChoice": false,
+              "choices": [
+                {"password_complexity_yes": "We implement industry best practices for password complexity and update password complexity requirements as industry best practices change."},
+                {"password_complexity_no": "We don't implement industry best practices for password complexity."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_password_complexity",
+              "cond": "password_complexity_no",
+              "text": "Cracking password hashes becomes easier with every year that goes by. Keeping up with password complexity best practices adds an additional layer of defence in the event that a password database is compromised.",
+              "warn": "yes",
+              "name": "No password complexity policy",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_id_initial_pw_change",
+              "text": "Users will be required to change their initial password upon first login",
+              "defaultChoice": false,
+              "choices": [
+                {"user_id_initial_pw_change_yes": "We require end users to change their initial password upon first login."},
+                {"user_id_initial_pw_change_no": "We do not require end users to change their initial password upon first login."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_user_id_initial_pw_change",
+              "cond": "user_id_initial_pw_change_no",
+              "text": "Administrators often get in a habit of choosing simple initial passwords, which is considered a bad practice but is difficult to mitigate. Requiring the end user to change their password upon first login reduces the possibility that an account will have a common, simple, and easy to guess password.",
+              "warn": "yes",
+              "name": "No initial password change",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_id_encrypt_pw",
+              "text": "User passwords will be encrypted at rest and in transit",
+              "defaultChoice": false,
+              "choices": [
+                {"user_id_encrypt_pw_yes": "Passwords for all of our systems are encrypted at rest and in transit."},
+                {"user_id_encrypt_pw_no": "Not all of our passwords are encrypted either at rest or in transit."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_user_id_encrypt_pw",
+              "cond": "user_id_encrypt_pw_no",
+              "text": "Clear text passwords are trivial for an attacker to steal and utilize for unauthorized access.",
+              "warn": "yes",
+              "name": "No password encryption",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_id_password_exp",
+              "text": "Our systems will require passwords to be changed after no more than 90 days, recurring.",
+              "defaultChoice": false,
+              "choices": [
+                {"user_id_password_exp_yes": "We require users to change their password every 90 days."},
+                {"user_id_password_exp_no": "We do not require our users to change their password every 90 days."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_user_id_password_exp",
+              "cond": "user_id_password_exp_no",
+              "text": "Expiring passwords would cause any password databases that could potentially be stolen to become stale data after 90 days.",
+              "warn": "yes",
+              "name": "No password expiration",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_id_password_standards",
+              "text": "Standards for password reuse, password change frequency, and unsuccessful login attempt lockouts follow industry best practices.",
+              "defaultChoice": false,
+              "choices": [
+                {"user_id_password_standards_yes": "Our standards for password reuse, password change frequency, and unsuccessful login attempt lockouts follow industry best practices."},
+                {"user_id_password_standards_no": "We do not follow industry best practices for password reuse, password change frequency, and unsuccessful login attempt lockouts."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_user_id_password_standards",
+              "cond": "user_id_password_standards_no",
+              "text": "Industry best practices for password policy provided additional protections for privilege escalation and are easily implemented in well-designed systems.",
+              "warn": "yes",
+              "name": "No password standards",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            },
+            {
+              "type": "radiogroup",
+              "id": "A screen locking mechanism will be activated to require a user to re-authenticate after 15 minutes of inactivity.",
+              "text": "user_id_screen_lock",
+              "defaultChoice": false,
+              "choices": [
+                {"user_id_screen_lock_yes": "Screens lock after 15 minutes of inactivity."},
+                {"user_id_screen_lock_no": "We do not use screen locks or screens screens take longer than 15 minutes of inactivity to lock."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_user_id_screen_lock",
+              "cond": "user_id_screen_lock_no",
+              "text": "An unattended PC is an avenue for an employee or contractor to commit fraud using someone else's credentials. Automatic screen locks limit the opportunity for malicious activity using an unattended and logged in PC.",
+              "warn": "yes",
+              "name": "No screen lock",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_id_restricted_access",
+              "text": "Administrative access to components on systems or networks that store, process, or transmit sensitive data will be restricted to a limited number of specific identified users that absolutely need the access to perform their job functions.",
+              "defaultChoice": false,
+              "choices": [
+                {"user_id_restricted_access_yes": "Access to sensitive data is granted on a need to know basis."},
+                {"user_id_restricted_access_no": "No controls exist to prevent access to sensitive data based on a need to know or controls of this nature are applied inconsistently."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_user_id_restricted_access",
+              "cond": "user_id_restricted_access_no",
+              "text": "Limiting access to sensitive data also limits the possibility of a data breach originating from an insider.",
+              "warn": "yes",
+              "name": "No restricted access to sensitive data",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_id_data_class_ownership",
+              "text": "Access to restricted data will be controlled in accordance with a data classification policy which includes formally defined and documented data ownership.",
+              "defaultChoice": false,
+              "choices": [
+                {"user_id_data_class_ownership_yes": "We use a data classification policy to decide how we grant access to data and how we assign data custodians."},
+                {"user_id_data_class_ownership_no": "We don't have a data classification policy implemented."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_user_id_data_class_ownership",
+              "cond": "user_id_data_class_ownership_no",
+              "text": "A data classification policy defines the data that needs to be protected and also assigns accountability to specific individuals to protect that data.",
+              "warn": "yes",
+              "name": "No data classification policy",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_id_change_of_duties",
+              "text": "User access rights will be immediately modified or suspended upon change of duties, transfer, or leave of absence.",
+              "defaultChoice": false,
+              "choices": [
+                {"user_id_change_of_duties_yes": "We modify or suspend access immediately upon change of duties, transfer, or leave of absence as appropriate."},
+                {"user_id_change_of_duties_no": "Job change or leave of absence does not trigger immediate access modifications."}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_user_id_change_of_duties",
+              "cond": "user_id_change_of_duties_no",
+              "text": "Allowing continued access to systems that an individual is no longer responsible for opens up the possibility that users could have access to data they don't need access to or allow for users to do all parts of a job that's intended to require separation of duties.",
+              "warn": "yes",
+              "name": "warn_no_user_id_change_of_duties",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            },
+            {
+              "type": "radiogroup",
+              "id": "user_id_access_rights_audit",
+              "text": "Access rights will be periodically reviewed against the list of valid user rights no less frequently than annually.",
+              "defaultChoice": false,
+              "choices": [
+                {"user_id_access_rights_audit_yes": ""},
+                {"user_id_access_rights_audit_no": ""}
+              ]
+            },
+            {
+              "type": "tip",
+              "id": "warn_no_user_id_access_rights_audit",
+              "cond": "user_id_access_rights_audit_no",
+              "text": "Reviewing actual access rights against decided and documented access rights adds an additional layer of security to ensure that access creep is properly dealt with in cases where job changes aren't properly handled.",
+              "warn": "yes",
+              "name": "Access rights audit",
+              "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+              "severity": "high"
+            }
+			]
+			},
+        {
+          "type": "block",
           "id": "block_network",
           "text": "Network",
           "items": [
