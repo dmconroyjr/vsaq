@@ -312,8 +312,8 @@
               "text": "Access rights will be periodically reviewed against the list of valid user rights no less frequently than annually.",
               "defaultChoice": false,
               "choices": [
-                {"user_id_access_rights_audit_yes": ""},
-                {"user_id_access_rights_audit_no": ""}
+                {"user_id_access_rights_audit_yes": "We audit access rights against a list of valid user rights at least annually."},
+                {"user_id_access_rights_audit_no": "We do not audit access rights or we audit less frequently than annually."}
               ]
             },
             {
