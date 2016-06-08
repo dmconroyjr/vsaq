@@ -1380,7 +1380,7 @@
                   "name": "Data backups not tested",
                   "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
                   "severity": "medium"
-                }
+                },
                 {
                   "type": "radiogroup",
                   "id": "servers_backup_controlled",
