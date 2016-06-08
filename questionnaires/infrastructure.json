@@ -868,7 +868,7 @@
                   "text": "<p>Do your hardening and build standards cover the following topics?</p><ul><li>Removing or disabling all non-essential services</li><li>Disabling all default accounts and/or changing the password</li><li>Review/tightening of permissions for key files and directories</li><li>Setting up logging</li><li>Securely configuring remote access and management interfaces</li><li>Setting up appropriate host-based firewall rules</li><li>Securely configuring a backup mechanism</li></ul>",
                   "defaultChoice": false,
                   "choices": [
-                    {"servers_hardening_requirements_yes": "Yes, these are all pretty much covered by our standards."},
+                    {"servers_hardening_requirements_yes": "Yes, these are all covered by our standards."},
                     {"servers_hardening_requirements_no": "No, we might have missed a few of these."}
                   ]
                 },
