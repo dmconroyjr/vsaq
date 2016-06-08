@@ -1381,6 +1381,66 @@
                   "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
                   "severity": "medium"
                 }
+                {
+                  "type": "radiogroup",
+                  "id": "servers_backup_controlled",
+                  "text": "Is access to backup tapes, floppy drives, hard drives, tapes, and other media that contain sensitive data controlled commensurate with the original access controls applied to the data?",
+                  "defaultChoice": false,
+                  "choices": [
+                    {"servers_backup_controlled_yes": "Yes, we take precautions to prevent unauthorized handling of media with sensitive data."},
+                    {"servers_backup_controlled_no": "We don't apply controls regarding access to physical media."}
+                  ]
+                },
+                {
+                  "type": "tip",
+                  "id": "warn_servers_backup_controlled",
+                  "cond": "servers_backup_controlled_no",
+                  "text": "Physical media containing sensitive data needs to be controlled just like data residing on servers. Unauthorized staff or contract help could potentially gain possession of data if it's not properly secured.",
+                  "warn": "yes",
+                  "name": "Data backups not controlled",
+                  "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+                  "severity": "high"
+                },
+                {
+                  "type": "radiogroup",
+                  "id": "servers_backup_lock",
+                  "text": "Is all electronic and magnetic media containing sensitive data removed from work areas and secured at the end of the workday?",
+                  "defaultChoice": false,
+                  "choices": [
+                    {"servers_backup_lock_yes": "Yes, we lock up all physical media containing backups to prevent unauthorized access."},
+                    {"servers_backup_lock_no": "We don't typically lock up our electronic and magnetic media at the end of the workday."}
+                  ]
+                },
+                {
+                  "type": "tip",
+                  "id": "warn_servers_backup_lock",
+                  "cond": "servers_backup_lock_no",
+                  "text": "Locking up electronic and magnetic media that contains sensitive data is considered a best practice for preventing unauthorized exposure.",
+                  "warn": "yes",
+                  "name": "Data backups not locked",
+                  "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+                  "severity": "high"
+                },
+                {
+                  "type": "radiogroup",
+                  "id": "servers_backup_reuse",
+                  "text": "Is media containing sensitive data immediately degaussed or destroyed when no longer necessary?  Is media that contained sensitive data prohibited from reuse for a purpose outside of contractual obligations?",
+                  "defaultChoice": false,
+                  "choices": [
+                    {"servers_backup_reuse_yes": "Yes, we prohibit reuse of media containing sensitive data and we also destroy or degauss media when it's no longer needed."},
+                    {"servers_backup_reuse_no": "We don't destroy or degauss media when it's no longer needed or we don't prohibit reuse of physical media."}
+                  ]
+                },
+                {
+                  "type": "tip",
+                  "id": "warn_servers_reuse_test",
+                  "cond": "servers_backup_reuse_no",
+                  "text": "Allowing reuse of media or discarding media after use without ensuring the data is indeed destroyed can lead to unauthorized disclosure of sensitive data.",
+                  "warn": "yes",
+                  "name": "Data reuse not prohibited",
+                  "why": "If you have compensating controls in place or feel that this issue does not constitute a risk in your specific circumstances, please explain below. If you're working to address this issue, include an estimate of when it will be resolved:",
+                  "severity": "high"
+                }
               ]
             },
             {
